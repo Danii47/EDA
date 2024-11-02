@@ -15,7 +15,7 @@ public class SimuladorOperaciones {
         simulador.PasoSimulacion();
         suma += SimuladorEditado.OPERATIONS_NUMBER;
       }
-      System.out.println((int) (suma / (ejecuciones - (i / 25))));
+      System.out.println((long) (suma / (ejecuciones - (i / 25))));
     }
   }
 }
