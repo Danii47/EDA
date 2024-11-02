@@ -1,3 +1,7 @@
+/**
+ * @author Daniel del Pozo Gómez y Daniel Fernández Varona
+ */
+
 public class PruebasSimulador {
   public static void main(String[] args) {
     int ejecuciones = 100;

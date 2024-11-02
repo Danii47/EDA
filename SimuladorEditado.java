@@ -1,4 +1,8 @@
 /**
+ * @author Daniel del Pozo Gómez y Daniel Fernández Varona
+ */
+
+/**
  * Clase para simular un líquido suponiendo que está compuesto por n gotículas.
  */
 public class SimuladorEditado {
