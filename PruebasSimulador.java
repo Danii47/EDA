@@ -7,7 +7,7 @@ public class PruebasSimulador {
     int ejecuciones = 100;
 
     for (int i = 10; i <= 1000; i += 10) {
-      
+
       Simulador simulador = new Simulador(i);
       double suma = 0;
 
@@ -15,7 +15,7 @@ public class PruebasSimulador {
         simulador.PasoSimulacion();
         suma += simulador.tpo;
       }
-      System.out.println(suma / 100);
+      System.out.println(suma / (ejecuciones - (i / 25)));
     }
   }
 }
