@@ -9,7 +9,6 @@ public class Main {
 		int executionTimesSimulatorExt = 600;
 
 		Simulador simulatorNormal = new Simulador(dropletsSimulatorNormal);
-
 		SimuladorExt simulatorExt = new SimuladorExt(dropletsSimulatorExt);
 
 
@@ -28,8 +27,6 @@ public class Main {
 		// System.out.println("Para " + dropletsSimulatorExt + " goticulas | Operaciones promedio: " + averageOperationsExt);
 
 
-
-
 		// javax.swing.SwingUtilities.invokeLater(() -> {
 		// 	new GUIPtos(simulatorExt);
 		// });
@@ -43,7 +40,7 @@ public class Main {
 			tiempoTotal += simulator.tpo;
 		}
 
-		return (tiempoTotal / executionTimes);
+		return tiempoTotal / executionTimes;
 	}
 
 	public static double getAverageOperations(Simulador simulator, int executionTimes) {
@@ -53,6 +50,6 @@ public class Main {
 			operations += Simulador.NOPER;
 		}
 
-		return (operations / executionTimes);
+		return operations / executionTimes;
 	}
 }
