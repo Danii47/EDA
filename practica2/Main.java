@@ -1,24 +1,22 @@
-package practica2;
-
 public class Main {
 	public static void main(String[] args) {
 		int dropletsSimulatorNormal = 10000;
 		int dropletsSimulatorExt = 10000;
 
-		int executionTimesSimulatorNormal = 200;
+		int executionTimesSimulatorNormal = 40;
 		int executionTimesSimulatorExt = 600;
 
 		Simulador simulatorNormal = new Simulador(dropletsSimulatorNormal);
 		SimuladorExt simulatorExt = new SimuladorExt(dropletsSimulatorExt);
 
 
-		double tiempoPromedioNormal = getAverageTime(simulatorNormal, executionTimesSimulatorNormal);
-		System.out.println("Para " + dropletsSimulatorNormal + " goticulas | Tiempo promedio: " + tiempoPromedioNormal + "ms");
+		// double tiempoPromedioNormal = getAverageTime(simulatorNormal, executionTimesSimulatorNormal);
+		// System.out.println("Para " + dropletsSimulatorNormal + " goticulas | Tiempo promedio: " + tiempoPromedioNormal + "ms");
 		
 		double tiempoPromedioExt = getAverageTime(simulatorExt, executionTimesSimulatorExt);
 		System.out.println("Para " + dropletsSimulatorExt + " goticulas | Tiempo promedio: " + tiempoPromedioExt + "ms");
 
-		System.out.println("Mejora de rendimiento (Normal / Ext): x" + (tiempoPromedioNormal / tiempoPromedioExt));
+		// System.out.println("Mejora de rendimiento (Normal / Ext): x" + (tiempoPromedioNormal / tiempoPromedioExt));
 
 		// double averageOperationsNormal = getAverageOperations(simulatorExt, executionTimesSimulatorNormal);
 		// System.out.println("Para " + dropletsSimulatorExt + " goticulas | Operaciones promedio: " + averageOperationsNormal);

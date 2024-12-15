@@ -1,5 +1,3 @@
-package practica2;
-
 //Versión 3 del Simulador para la Segunda Práctica
 
 public class Simulador {

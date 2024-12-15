@@ -1,50 +1,19 @@
-package practica2;
+/*
+ * @authors Daniel del Pozo Gomez & Daniel Fernandez Varona
+*/
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.ArrayList;
 
 public class SimuladorExt extends Simulador {
 
   private final float SCALE_PROPORTION = 1.75f;
 
-  public class Grid {
-    public int x;
-    public int y;
-
-    public Grid(Goticula g) {
-      x = Math.round(g.x * SCALE_PROPORTION);
-      y = Math.round(g.y * SCALE_PROPORTION);
-    }
-
-    public Grid(int i, int j) {
-      x = i;
-      y = j;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-      if (obj == this) {
-        return true;
-      }
-
-      if (!(obj instanceof Grid)) {
-        return false;
-      }
-
-      Grid g = (Grid) obj;
-      return x == g.x && y == g.y;
-    }
-
-    @Override
-    public int hashCode() {
-      return Objects.hash(x, y);
-    }
-  }
+  HashMap<Grid, ArrayList<Goticula>> dropletsHashMap = new HashMap<>();
 
   public SimuladorExt(int n) {
     super(n);
   }
-
-  Map<Grid, ArrayList<Goticula>> dropletsHashMap = new HashMap<>();
 
   @Override
   protected float CalcDensidad(float x, float y) {
@@ -58,7 +27,7 @@ public class SimuladorExt extends Simulador {
         Grid searchGrid = new Grid(i, j);
         ArrayList<Goticula> droplet = dropletsHashMap.getOrDefault(searchGrid, null);
         if (droplet != null) {
-          for (Goticula g: droplet) {
+          for (Goticula g : droplet) {
             density += CalcDensidadIter(x, y, g);
           }
         }
@@ -79,7 +48,7 @@ public class SimuladorExt extends Simulador {
         Grid searchGrid = new Grid(i, j);
         ArrayList<Goticula> droplet = dropletsHashMap.getOrDefault(searchGrid, null);
         if (droplet != null) {
-          for (Goticula g: droplet) {
+          for (Goticula g : droplet) {
             f.Add(CalcPresionIter(gi, g));
           }
         }
@@ -101,7 +70,7 @@ public class SimuladorExt extends Simulador {
         Grid searchGrid = new Grid(i, j);
         ArrayList<Goticula> droplet = dropletsHashMap.getOrDefault(searchGrid, null);
         if (droplet != null) {
-          for (Goticula g: droplet) {
+          for (Goticula g : droplet) {
             f.Add(CalcViscosidadIter(gi, g));
           }
         }
@@ -114,7 +83,7 @@ public class SimuladorExt extends Simulador {
   protected void ReestructuraED() {
     dropletsHashMap.clear();
     for (Goticula g : gotas) {
-      Grid grid = new Grid(g);
+      Grid grid = new Grid(g.x, g.y);
       ArrayList<Goticula> droplet = dropletsHashMap.get(grid);
       if (droplet != null) {
         dropletsHashMap.get(grid).add(g);
